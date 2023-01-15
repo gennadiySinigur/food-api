@@ -36,4 +36,14 @@ public class MyRecipesController {
                 .map(recipe -> new ResponseEntity<>(recipe, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
+
+    @PutMapping("/{id}/update")
+    public ResponseEntity<Void> update(
+            @PathVariable("id") UUID id,
+            @RequestBody MyRecipe updatedRecipe
+    ) {
+        myRecipeService.updateRecipe(id, updatedRecipe);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
