@@ -30,4 +30,21 @@ public class MyRecipeServiceImpl implements MyRecipeService {
 
         return myRecipe.orElse(null);
     }
+
+    @Override
+    public void updateRecipe(UUID id, MyRecipe updatedRecipe) {
+        Optional<MyRecipe> myRecipe = myRecipeRepository.findById(id);
+
+        if (myRecipe.isPresent()) {
+            MyRecipe recipeToUpdate = myRecipe.get();
+
+            recipeToUpdate.setTitle(updatedRecipe.getTitle());
+            recipeToUpdate.setCategory(updatedRecipe.getCategory());
+            recipeToUpdate.setImageAddress(updatedRecipe.getImageAddress());
+            recipeToUpdate.setIngredients(updatedRecipe.getIngredients());
+            recipeToUpdate.setInstruction(updatedRecipe.getInstruction());
+
+            myRecipeRepository.save(recipeToUpdate);
+        }
+    }
 }
