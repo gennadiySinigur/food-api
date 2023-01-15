@@ -32,7 +32,7 @@ public class MyRecipeServiceImpl implements MyRecipeService {
     }
 
     @Override
-    public void updateRecipe(UUID id, MyRecipe updatedRecipe) {
+    public MyRecipe updateRecipe(UUID id, MyRecipe updatedRecipe) {
         Optional<MyRecipe> myRecipe = myRecipeRepository.findById(id);
 
         if (myRecipe.isPresent()) {
@@ -45,6 +45,10 @@ public class MyRecipeServiceImpl implements MyRecipeService {
             recipeToUpdate.setInstruction(updatedRecipe.getInstruction());
 
             myRecipeRepository.save(recipeToUpdate);
+
+            return recipeToUpdate;
         }
+
+        return null;
     }
 }

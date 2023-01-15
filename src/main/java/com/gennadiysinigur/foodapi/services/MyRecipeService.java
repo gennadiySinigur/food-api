@@ -12,5 +12,5 @@ public interface MyRecipeService {
 
     MyRecipe getRecipeById(UUID id);
 
-    void updateRecipe(UUID id, MyRecipe updatedRecipe);
+    MyRecipe updateRecipe(UUID id, MyRecipe updatedRecipe);
 }

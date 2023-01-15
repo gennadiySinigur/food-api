@@ -38,12 +38,12 @@ public class MyRecipesController {
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<Void> update(
+    public ResponseEntity<MyRecipe> update(
             @PathVariable("id") UUID id,
             @RequestBody MyRecipe updatedRecipe
     ) {
-        myRecipeService.updateRecipe(id, updatedRecipe);
+        MyRecipe myRecipe = myRecipeService.updateRecipe(id, updatedRecipe);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(myRecipe, HttpStatus.OK);
     }
 }
