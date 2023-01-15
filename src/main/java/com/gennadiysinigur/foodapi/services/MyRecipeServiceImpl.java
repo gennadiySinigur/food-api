@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class MyRecipeServiceImpl implements MyRecipeService {
@@ -20,5 +22,12 @@ public class MyRecipeServiceImpl implements MyRecipeService {
     @Override
     public List<MyRecipe> getAllRecipes() {
         return myRecipeRepository.findAll();
+    }
+
+    @Override
+    public MyRecipe getRecipeById(UUID id) {
+        Optional<MyRecipe> myRecipe = myRecipeRepository.findById(id);
+
+        return myRecipe.orElse(null);
     }
 }
