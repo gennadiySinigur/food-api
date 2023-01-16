@@ -13,4 +13,6 @@ public interface MyRecipeService {
     MyRecipe getRecipeById(UUID id);
 
     MyRecipe updateRecipe(UUID id, MyRecipe updatedRecipe);
+
+    void deleteRecipe(UUID id);
 }

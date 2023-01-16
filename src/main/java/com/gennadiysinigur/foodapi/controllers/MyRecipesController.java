@@ -48,4 +48,11 @@ public class MyRecipesController {
 
         return new ResponseEntity<>(myRecipe, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<Void> delete(@PathVariable("id") UUID id) {
+        myRecipeService.deleteRecipe(id);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

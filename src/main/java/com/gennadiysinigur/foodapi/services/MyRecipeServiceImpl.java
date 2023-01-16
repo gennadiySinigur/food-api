@@ -53,4 +53,13 @@ public class MyRecipeServiceImpl implements MyRecipeService {
 
         return null;
     }
+
+    @Override
+    public void deleteRecipe(UUID id) {
+        Optional<MyRecipe> myRecipe = myRecipeRepository.findById(id);
+
+        if (myRecipe.isPresent()) {
+            myRecipeRepository.deleteById(id);
+        }
+    }
 }
