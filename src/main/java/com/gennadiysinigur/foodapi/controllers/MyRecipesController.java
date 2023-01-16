@@ -19,8 +19,10 @@ public class MyRecipesController {
     private MyRecipeService myRecipeService;
 
     @PostMapping("/add")
-    public void add(@RequestBody MyRecipe recipe) {
+    public ResponseEntity<MyRecipe> add(@RequestBody MyRecipe recipe) {
         myRecipeService.saveRecipe(recipe);
+
+        return new ResponseEntity<>(recipe, HttpStatus.OK);
     }
 
     @GetMapping

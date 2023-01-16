@@ -15,8 +15,10 @@ public class MyRecipeServiceImpl implements MyRecipeService {
     private MyRecipeRepository myRecipeRepository;
 
     @Override
-    public void saveRecipe(MyRecipe recipe) {
+    public MyRecipe saveRecipe(MyRecipe recipe) {
         myRecipeRepository.save(recipe);
+
+        return recipe;
     }
 
     @Override
