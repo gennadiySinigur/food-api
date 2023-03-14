@@ -3,6 +3,7 @@ package com.gennadiysinigur.foodapi.services;
 import com.gennadiysinigur.foodapi.models.MyRecipe;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface MyRecipeService {
@@ -14,5 +15,5 @@ public interface MyRecipeService {
 
     MyRecipe updateRecipe(UUID id, MyRecipe updatedRecipe);
 
-    void deleteRecipe(UUID id);
+    Optional<MyRecipe> deleteRecipe(UUID id);
 }
